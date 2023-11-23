@@ -1,0 +1,16 @@
+.card-body {
+    border: 3px solid black;
+    margin-top: 10px !important;
+    padding: 10px;
+}
+.col-md-8 {
+    border: 2px solid black;
+    margin-top: 5px !important;
+    padding: 10px;
+}
+
+.col-md-4 {
+    border: 0.5px solid black;
+    margin-top: 5px !important;
+    padding: 5px;
+}
