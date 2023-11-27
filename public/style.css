@@ -1,46 +1,138 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-}
-
-.container {
-    margin: auto;
-    width: 80%;
-    padding: 20px;
-}
-
-
-h2 {
     color: #333;
 }
 
-
-.card {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
+/* Header Styles */
+h2.text-center {
+    margin-top: 50px;
+    font-size: 2.5em;
+    color: #007bff;
+}
 
+/* Jumbotron Styles */
+.jumbotron {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+}
+
+/* Form Styles */
 form {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
 
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
 .btn {
     padding: 10px 20px;
-    background-color: #007bff;
     border: none;
-    color: #fff;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
-    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
 }
 
+input[type="submit"]:hover,
 .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Search Bar Styles */
+.form-control {
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* "BACK HOME" Button Styles */
+.text-center a.btn-primary {
+    margin-top: 30px;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.text-center a.btn-primary:hover {
     background-color: #0056b3;
 }
