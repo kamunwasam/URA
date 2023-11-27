@@ -82,7 +82,33 @@ app.get('/get-assets', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+const { v4: uuidv4 } = require('uuid');
 
+app.post('/create-taxpayer', async (req, res) => {
+    try {
+        const { name, dob, occupation, gender, phone, email, income } = req.body;
+
+        
+        const idNumber = uuidv4();
+
+        const newTaxPayer = new TaxPayer({
+            idNumber, 
+            name,
+            dob,
+            occupation,
+            gender,
+            phone,
+            email,
+            income
+        });
+
+        await newTaxPayer.save();
+
+        res.status(201).json({ message: 'Taxpayer created successfully', idNumber });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

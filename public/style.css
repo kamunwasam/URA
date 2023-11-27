@@ -1,16 +1,46 @@
-.card-body {
-    border: 3px solid black;
-    margin-top: 10px !important;
-    padding: 10px;
-}
-.col-md-8 {
-    border: 2px solid black;
-    margin-top: 5px !important;
-    padding: 10px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-.col-md-4 {
-    border: 0.5px solid black;
-    margin-top: 5px !important;
-    padding: 5px;
+.container {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+}
+
+
+h2 {
+    color: #333;
+}
+
+
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+form {
+    margin-bottom: 20px;
+}
+
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
 }
