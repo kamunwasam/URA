@@ -14,8 +14,37 @@
         <div class="jumbotron">
             <div class="row">
                 <div class="col-md-8">
-                    <!-- Feel free to delete the paragraph after implementation -->
-                    <p>Create an appropriate form to capture the asset's details as indicated in the description. Upon successfull registration, an asset code matching the criteria must be generated and communicated to the user in form of an alert.</p>
+                    Get help from Real Tutors
+
+Copy
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+
+    <form action="" method="POST">
+        <label for="assetName">Asset Name:</label>
+        <input type="text" id="assetName" name="assetName" required><br><br>
+
+        <label for="estimatedCost">Estimated Cost:</label>
+        <input type="number" id="estimatedCost" name="estimatedCost" min="0" step="0.01" required><br><br>
+
+        <label for="tin">Owner's TIN:</label>
+        <input type="text" id="tin" name="tin" required><br><br>
+
+        <label for="type">Type:</label>
+        <select id="type" name="type">
+            <option value="">Select Type</option>
+            <option value="fixed">Fixed</option>
+            <option value="movable">Movable</option>
+        </select><br><br>
+        <label for=assetNumber>Asset Number:</label> 
+		<input type=text id=assetNumber name=assetNumber value="<?php echo $assetNumber; ?>" readonly><br><br>
+        <input type=submit value=Register> 
+    </form>
                 </div>
                 <div class="col-md-4">
                         <form class="form-inline pt-10">
