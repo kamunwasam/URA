@@ -24,7 +24,7 @@
                       <title>TAX PAYER'S INFORMATION</title>
                   </head>
                   <body>
-                      <h2>TAX PAYER'S INFORMATION</h2>
+                      
                   
                       <form action="" method="POST">
                           <label for="name">Payer's Name:</label>
@@ -41,7 +41,7 @@
                               <option value="">Select Gender</option>
                               <option value="male">Male</option>
                               <option value="female">Female</option>
-                              <option value="other">Other</option>
+
                           </select><br><br>
                   
                           <label for="phone">Phone Number:</label>
@@ -69,9 +69,81 @@
         <div class="jumbotron">
             <h3 class="text-center">REGISTERED TAX PAYERS</h3>
             <div class="row">
-                <!-- Feel free to delete the paragraph after implementation -->
-                <p>Create a tabular view of the tax payers displaying the first 10 with navigation buttons to the next batch of 10 payers.</p>
-                <p>Upon search of a tax payer from the search field above, the searched payer should be the only one returned in the tabular view.</p>
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Registered Tax Payers</title>
+                    <link rel="stylesheet" href="style.css">
+                    <!-- Bootstrap CSS -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                </head>
+                <body>
+                    
+                    <div class="container">
+                        <div class="jumbotron">
+                            <input type="text" id="searchBox" placeholder="Search by TIN" onkeyup="searchTaxPayer()">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>TIN</th>
+                                        <th>Name</th>
+                                        <th>Date of Birth</th>
+                                        <!-- Add other relevant columns -->
+                                    </tr>
+                                </thead>
+                                <tbody id="taxPayersTableBody">
+                                    <!-- Display tax payers here -->
+                                </tbody>
+                            </table>
+                            <div class="text-center">
+                                <button onclick="prevPage()">Previous</button>
+                                <button onclick="nextPage()">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <script>
+                        // Function to search for a tax payer
+                        function searchTaxPayer() {
+                            var input, filter, table, tr, td, i, txtValue;
+                            input = document.getElementById("searchBox");
+                            filter = input.value.toUpperCase();
+                            table = document.getElementById("taxPayersTableBody");
+                            tr = table.getElementsByTagName("tr");
+                            for (i = 0; i < tr.length; i++) {
+                                td = tr[i].getElementsByTagName("td")[0]; // Search by TIN (Update index as needed)
+                                if (td) {
+                                    txtValue = td.textContent || td.innerText;
+                                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                        tr[i].style.display = "";
+                                    } else {
+                                        tr[i].style.display = "none";
+                                    }
+                                }
+                            }
+                        }
+                
+                        // Function to display the next page of tax payers (pagination logic goes here)
+                        function nextPage() {
+                            // Logic to fetch and display the next batch of tax payers
+                        }
+                
+                        // Function to display the previous page of tax payers (pagination logic goes here)
+                        function prevPage() {
+                            // Logic to fetch and display the previous batch of tax payers
+                        }
+                
+                        // Function to fetch initial batch of tax payers and populate the table (on page load)
+                        window.onload = function() {
+                            // Initial fetch and display of tax payers
+                        };
+                    </script>
+                </body>
+                </html>
+                
             </div>
         </div>
     </div>

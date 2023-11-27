@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay Tax</title>
+    <title>Pay Income Tax</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-    <h2 class="text-center"> PAY INCOME TAX</h2>
+    <h2 class="text-center">PAY INCOME TAX</h2>
+
     <div class="container">
         <div class="jumbotron">
-            <div class="row">
+            <form id="incomeTaxForm">
+                <label for="profits">Total Profits Made:</label>
+                <input type="number" id="profits" name="profits" required><br><br>
                 
-                    <!-- Feel free to delete the paragraph after implementation -->
-                    <p>Create an appropriate form to facilitate the payment of Income tax. <small>Remember: </small> All we need is a field where to enter the total profits made, then 18% of the profits is returned as the tax payable. A field requesting for the TIN is returned, TIN entered, and then the pay button is clicked to complete the process.</p>
-                    <p>Upon successful payment, a thank you alert containing the payer's name should be displayed.</p>
-            </div>
+                <label for="tin">TIN:</label>
+                <input type="text" id="tin" name="tin" required><br><br>
+
+                <button type="button" onclick="calculateTax()" class="btn btn-primary">Pay</button>
+            </form>
         </div>
     </div>
 
     <div class="row text-center">
         <a class="btn btn-primary" href="index.html">BACK HOME</a>
     </div>
+
+    <script>
+        function calculateTax() {
+            const profits = document.getElementById('profits').value;
+            const tin = document.getElementById('tin').value;
+
+            // Calculate 18% of profits as tax payable
+            const taxPayable = profits * 0.18;
+
+            // Here, you might have an AJAX request to the server to process the payment
+            // For simplicity, we'll just show an alert upon button click
+            alert(`Thank you for paying income tax, TIN: ${tin}. Tax payable: $${taxPayable}`);
+        }
+    </script>
 </body>
 </html>

@@ -110,6 +110,31 @@ app.post('/create-taxpayer', async (req, res) => {
     }
 });
 
+app.get('/taxpayers', async (req, res) => {
+  try {
+      const searchTerm = req.query.searchTerm || ''; // Get search term if provided
+      const page = parseInt(req.query.page) || 1; // Get page number or default to 1
+      const perPage = 10; // Number of records per page
+
+      let query = {};
+      if (searchTerm) {
+          query = { name: { $regex: searchTerm, $options: 'i' } }; // Search by name (modify as needed)
+      }
+
+      const totalTaxpayers = await TaxPayer.countDocuments(query);
+      const taxpayers = await TaxPayer.find(query)
+          .skip((page - 1) * perPage)
+          .limit(perPage);
+
+      res.json({
+          taxpayers,
+          currentPage: page,
+          totalPages: Math.ceil(totalTaxpayers / perPage)
+      });
+  } catch (err) {
+      res.status(500).json({ error: err.message });
+  }
+});
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);

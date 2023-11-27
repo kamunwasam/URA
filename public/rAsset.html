@@ -60,9 +60,61 @@ Copy
         <div class="jumbotron">
             <h3 class="text-center">REGISTERED ASSETS</h3>
             <div class="row">
-                <!-- Feel free to delete the paragraph after implementation -->
-                <p>Create a tabular view of the assets displaying the first 10 with navigation buttons to the next batch of 10 Assets.</p>
-                <p>Upon search of an asset from the search field above, the searched Asset should be the only one returned in the tabular view.</p>
+                <table id="taxPayersTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Occupation</th>
+                            <!-- Add more table headers as needed -->
+                        </tr>
+                    </thead>
+                    <tbody id="taxPayersBody"></tbody>
+                </table>
+                
+                <div id="paginationButtons"></div>
+                
+                <script>
+                    
+                    const displayTaxPayers = (data) => {
+                        $('#taxPayersBody').empty();
+                        data.taxpayers.forEach((taxpayer) => {
+                            $('#taxPayersBody').append(`
+                                <tr>
+                                    <td>${taxpayer.name}</td>
+                                    <td>${taxpayer.dob}</td>
+                                    <td>${taxpayer.occupation}</td>
+                                    <!-- Add more table data as needed -->
+                                </tr>
+                            `);
+                        });
+                
+                        // Display pagination buttons
+                        $('#paginationButtons').empty();
+                        for (let i = 1; i <= data.totalPages; i++) {
+                            $('#paginationButtons').append(`
+                                <button onclick="getTaxPayers(${i})">${i}</button>
+                            `);
+                        }
+                    };
+                
+                    const getTaxPayers = (page = 1, searchTerm = '') => {
+                        $.ajax({
+                            url: `/taxpayers?page=${page}&searchTerm=${searchTerm}`,
+                            method: 'GET',
+                            success: function (data) {
+                                displayTaxPayers(data);
+                            },
+                            error: function (error) {
+                                console.error('Error fetching tax payers:', error);
+                            }
+                        });
+                    };
+                
+                    $(document).ready(() => {
+                        getTaxPayers();
+                    });
+                </script>
             </div>
         </div>
     </div>
